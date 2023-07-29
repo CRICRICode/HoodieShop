@@ -1,0 +1,12 @@
+package Cricri.Shop.services.exception;
+
+public class CartNotFoundException extends RuntimeException{
+    public CartNotFoundException(String message)
+    {
+        super(message);
+    }
+    public CartNotFoundException()
+    {
+        this("Cart not found.");
+    }
+}

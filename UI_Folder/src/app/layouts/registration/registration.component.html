@@ -1,0 +1,47 @@
+<div class="centerDiv">
+    <h1 class="signup">Sign Up</h1>
+<mat-optgroup class="centered">
+    <mat-form-field >
+        <mat-label>Inserisci il nome</mat-label>
+        <input matInput placeholder="Mario" [formControl]="nome" required>
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-error *ngIf="nome.invalid">{{getErrorMessageNome()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field >
+        <mat-label>Inserisci il cognome</mat-label>
+        <input matInput placeholder="Rossi" [formControl]="cognome" required>
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-error *ngIf="cognome.invalid">{{getErrorMessageCognome()}}</mat-error>
+    </mat-form-field>
+</mat-optgroup>
+<mat-optgroup class="centered">
+    <mat-form-field >
+        <mat-label>Inserisci la email</mat-label>
+        <input matInput placeholder="esempio@email.com" [formControl]="email" required>
+        <mat-icon matSuffix>mail</mat-icon>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Inserisci la password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" required>
+        <!--Se hide==true allora è di tipo password-->
+        <mat-error *ngIf="password.invalid">{{getErrorMessagePassword()}}</mat-error>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    </mat-form-field>
+</mat-optgroup>
+
+    <div>
+        <p class="centered">
+            <button mat-stroked-button [disabled]="email.invalid || password.invalid || nome.invalid || cognome.invalid"
+                [ngClass]="{'centeredActive-button': !email.invalid && !password.invalid && !nome.invalid && !cognome.invalid, 
+            'centeredInactive-button': email.invalid || password.invalid || nome.invalid || cognome.invalid}"
+                (click)="registra()" >
+                Registrati</button>
+        </p>
+    </div>
+</div>

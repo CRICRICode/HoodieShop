@@ -1,0 +1,18 @@
+/* Aggiungi questa regola CSS per i bottoni "Seleziona taglia" e "Carrello" con sfondo nero */
+.black-button {
+  background-color: black !important;
+  color: rgb(0, 0, 0) !important;
+}
+
+/* Rimuovi le regole CSS precedenti per i pulsanti "Acquista ora" */
+.yellow-button {
+  background-color: #ffd900 !important;
+  color: #000000 !important;
+}
+.yellow-button:hover {
+  background-color: #222;
+}
+.yellow-button:disabled {
+  background-color: #555;
+  color: #aaa;
+}

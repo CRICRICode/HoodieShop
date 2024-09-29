@@ -1,0 +1,39 @@
+<mat-toolbar role="toolbar" style="color: black; background-color: rgba(238, 238, 238, 0.552);">
+  <mat-icon mat-icon-button class="titolo" (click)="router.navigate(['home'])">home</mat-icon>
+  <span routerLink="/home" class="titolo" style="color: black;">HoodieStore</span>
+  <span class="example-spacer"></span>
+
+  <!-- Bottone del carrello -->
+  <button mat-icon-button class="example-icon cart-icon" aria-label="Cart button" matTooltip="Cart"
+    (click)="goToCart()">
+    <mat-icon>shopping_cart</mat-icon>
+  </button>
+
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Favorite button" style="color: black;"
+    matTooltip="Register" *ngIf="!auth.isLogged()" (click)="registrati()">
+    <mat-icon>perm_identity</mat-icon>
+  </button>
+
+
+
+
+  <button mat-icon-button class="example-icon" aria-label="Share button" matTooltip="Login" style="color: black;"
+    *ngIf="!auth.isLogged()" (click)="logIn()">
+    <mat-icon>login</mat-icon>
+  </button>
+
+  <ng-template #loginButton>
+    <button mat-button class="login-button" (click)="logIn()">Login</button>
+  </ng-template>
+
+  <!--Dopo essersi loggati-->
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Favorite button" matTooltip="Profile"
+    *ngIf="auth.isLogged()" (click)="account()">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Share button" matTooltip="Logut" *ngIf="auth.isLogged()"
+    (click)="auth.logout()">
+    <mat-icon>logout</mat-icon>
+  </button>
+
+</mat-toolbar>

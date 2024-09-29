@@ -1,0 +1,52 @@
+<button mat-raised-button class="yellow-button" (click)="acquista()" style="width: 100% !important;" [disabled]="!isLogged()">Acquista ora!</button>
+
+<mat-grid-list cols="3" gutterSize="50" style="top:5%">
+    <mat-grid-tile *ngFor="let prod of prodotti | async">
+        <mat-card style="height: 400px; min-height: 420px;"> <!-- Imposta un'altezza fissa e minima per il mat-card -->
+            <mat-card-header style="background-color: var(--primary-color);">
+                <mat-card-title style="color:var(--accent-color)">{{prod.prodotto.nome}}</mat-card-title>
+                <mat-card-subtitle style="color:var(--accent-color)">Brand: {{prod.prodotto.nomeBrand}}</mat-card-subtitle>
+                <mat-card-subtitle style="color:var(--accent-color)">Taglia: {{prod.prodotto.size}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image style="max-width: 100%; max-height: 250px;" src="{{prod.prodotto.url}}" alt={{prod.prodotto.nome}} 
+                (click)="viewProduct(prod.prodotto.nome)">
+            <mat-card-footer></mat-card-footer>
+            <mat-card-actions>
+                <!-- PREZZO -->
+                <button mat-stroked-button disabled>{{prod.prezzo * prod.qta}} €</button>
+                <!-- QUANTITA andrebbe fatto dopo che si seleziona la size, così da associarlo alla size scelta-->
+                <button mat-button color="warn" >{{prod.qta}}</button>
+
+                <button mat-mini-fab color="primary" aria-label="icon button with an upward arrow" 
+                    [disabled]="inputSelettore.value == prod.qta.toString()"
+                    (click)="inputSelettore.value=incrementa(inputSelettore.value)">
+                    <mat-icon>arrow_upward</mat-icon>
+                </button>
+
+                <!-- INPUT -->
+                <mat-form-field style="width: 120px !important;">
+                    <mat-label>quantità</mat-label>
+                    <input matInput placeholder="0" [disabled]="true" required #inputSelettore value="0">
+                    <mat-icon matSuffix>quantità</mat-icon>
+                </mat-form-field>
+
+                <button mat-mini-fab color="primary" aria-label="icon button with a downward arrow" 
+                    [disabled]="inputSelettore.value == '0'" 
+                    [disabled]="prod.qta>=0"
+                    (click)="inputSelettore.value=decrementa(inputSelettore.value)">
+                    <mat-icon>arrow_downward</mat-icon>
+                </button>
+
+                <button mat-mini-fab color="primary" aria-label="Example icon button with a delete icon" 
+                    [disabled]="inputSelettore.value == '0'"
+                    (click)="rimuoviDalCarrello(prod, inputSelettore.value)">
+                    <mat-icon>remove_shopping_cart</mat-icon>
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
+
+
+<button mat-raised-button class="yellow-button" (click)="acquista()" style="width: 100% !important;" [disabled]="!isLogged()">Acquista ora!</button>
+

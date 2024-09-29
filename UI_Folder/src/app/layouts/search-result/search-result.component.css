@@ -1,0 +1,4 @@
+mat-card img:hover{
+    filter: brightness(50%);
+    cursor: pointer;
+}

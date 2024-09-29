@@ -1,0 +1,32 @@
+:root{
+    position: relative;
+}
+.showProdotto{
+    width: 23%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+ 
+.seleziona{
+    font-size: 30px;
+  font-weight: bold;
+  top: -8%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  margin-bottom: 20px; /* Aggiunto margine inferiore per spaziare dai formfields */
+}
+
+/*Menu*/
+
+.menu {
+    background-color: var(--primary-color) !important;
+    text-transform: uppercase;
+   } 
+
+.menu .cdk-overlay-connected-position-bounding-box {
+    bottom: 0 !important;     /* La regola left: 0 !important; imposta la posizione sinistra dell'elemento a 0, che significa che verrà posizionato all'estrema sinistra della finestra o del contenitore genitore. L'uso di !important garantisce che questa regola venga applicata anche se ci sono altre regole che potrebbero tentare di sovrascriverla.*/
+  }
+

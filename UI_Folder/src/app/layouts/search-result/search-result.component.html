@@ -1,0 +1,21 @@
+    <mat-paginator [length]="100"
+                [pageSize]="pageSize"
+                [pageSizeOptions]="[5, 10, 25, 100]"
+                aria-label="Select page"
+                (page)="onPageChange($event)">
+    </mat-paginator>
+<mat-grid-list cols="1" rowHeight="1:1" gutterSize="50">
+    <mat-grid-list cols="3" rowHeight="1:1" gutterSize="50" style="top:5%">
+        <mat-grid-tile *ngFor="let prod of prodottiSenzasize | async"> <!-- Eventualmente prodotti invece di prodottiSenzasize-->
+        <mat-card>
+            <mat-card-header style="background-color: var(--primary-color);">
+                <mat-card-title style="color:var(--accent-color)">{{prod.nome}}</mat-card-title>
+                <mat-card-subtitle style="color:var(--accent-color)">{{prod.nomeBrand}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image style="max-width: 350px !important;" src="{{prod.url}}" alt={{prod.nome}} 
+            (click)="viewProduct(prod.nome)" style="max-width: 350px !important;">
+        </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+</mat-grid-list>

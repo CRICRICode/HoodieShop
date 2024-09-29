@@ -1,0 +1,51 @@
+:root{
+    position: relative;
+}
+.centerDiv{
+    width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 44%;
+    transform: translate(-50%, -50%);
+}
+
+.signup{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    left: 50%;
+    right: 50%;
+    text-justify:inter-word;
+    margin-bottom: 20px;
+    position: center;
+}
+
+.centered {
+    position: relative !important;
+    top:25% !important;
+    left:25% !important;
+}
+
+.centeredActive-button {
+    position: relative !important;
+    top:25% !important;
+    width: 40.5%;
+    color:var(--primary-color) !important;
+}
+
+/* Styles for the inactive button */
+.centeredInactive-button {
+    position: center !important;
+    top: 25% !important;
+    width: 87%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(189, 189, 189);
+}
+
+/* Styles for the active button and hover state */
+.centeredActive-button{
+    position: center !important;
+    top: 25% !important;
+    width: 87%;
+}
+

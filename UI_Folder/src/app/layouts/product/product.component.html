@@ -1,0 +1,55 @@
+<div class="showProdotto">
+  <h1 class="seleziona">Selezione</h1>
+  <mat-card style="max-width: 350px !important;">
+    <mat-card-header style="background-color: var(--primary-color);">
+      <mat-card-title style="color:var(--accent-color)">{{prodotto.nome}}</mat-card-title>
+      <mat-card-subtitle style="color:var(--accent-color)">{{prodotto.nomeBrand}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image style="max-width: 350px !important;" src="{{prodotto.url}}" alt={{prodotto.nome}}>
+
+    <mat-card-actions style="position: relative;">
+      <!-- MENU -->
+      <button mat-fab aria-label="Seleziona taglia" matTooltip="Seleziona taglia" [matMenuTriggerFor]="menu">
+        <mat-icon>expand_more</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" class="menu">
+        <button mat-menu-item class="menu-item" *ngFor="let prod of prodotti" (click)="onMenuItemClicked(prod)"
+          [disabled]="prod.qta<1">{{prod.size}}</button>
+      </mat-menu>
+
+      <!-- INPUT -->
+      <mat-form-field style="width: 200px !important;">
+        <mat-label>Quantità</mat-label>
+        <input matInput placeholder="1" [disabled]="true" [(ngModel)]="quantita">
+        <mat-icon matSuffix>quantità</mat-icon>
+      </mat-form-field>
+
+      <button mat-mini-fab color="primary" aria-label="icon button with an upward arrow"
+        [disabled]="!menuItemSelected || (isDisabledInc$ | async)" (click)="incrementa()" #incButton>
+        <mat-icon>arrow_upward</mat-icon>
+      </button>
+      <button mat-mini-fab color="primary" aria-label="icon button with a downward arrow"
+        [disabled]="!menuItemSelected || (isDisabledDec$ | async)" 
+        (click)="decrementa()" #decButton>
+        <mat-icon>arrow_downward</mat-icon>
+      </button>
+    </mat-card-actions>
+
+    <mat-card-actions>
+      <!-- PREZZO -->
+      <button mat-stroked-button disabled style="width: 270px;">{{prodotto.prezzo }} €</button>
+      <!-- QUANTITA andrebbe fatto dopo che si seleziona la taglia, così da associarlo alla taglia scelta-->
+      <button mat-button color="warn" *ngIf="prodotto.qta<=10">Ultimi pezzi</button>
+
+      <!--Selezione quantità-->
+      <input type="hidden" #placeHolder value="2">
+      <button mat-fab aria-label="Aggiungi al carrello" matTooltip="Aggiungi al carrello" [disabled]="!menuItemSelected"
+        (click)="aggiungiAlCarrello()">
+        <mat-icon>add_shopping_cart</mat-icon>
+      </button>
+    </mat-card-actions>
+
+    <!-- ProgressBar -->
+    <mat-progress-bar mode="indeterminate" *ngIf="isButtonClicked"></mat-progress-bar>
+  </mat-card>
+</div>

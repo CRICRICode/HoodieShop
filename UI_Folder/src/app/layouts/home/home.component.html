@@ -1,0 +1,29 @@
+<div class="paginator-container">
+  <div class="paginator">
+    <mat-paginator [length]="100" [pageSize]="pageSize" [pageSizeOptions]="[10, 20, 50, 100]" aria-label="Select page"
+      (page)="onPageChange($event)">
+    </mat-paginator>
+  </div>
+  <div class="icon">
+    <button mat-icon-button (click)="onIconClick()">
+      <mat-icon>filter_list</mat-icon>
+    </button>
+  </div>
+</div>
+
+
+<mat-grid-list cols="1" rowHeight="1:1" gutterSize="50" [style.rowGap.px]="40"> <!-- Aggiungi lo spazio tra le righe -->
+  <mat-grid-list cols="3" rowHeight="1:1" class="product-grid">
+    <!-- Usa la classe "product-grid" per lo spostamento verso l'alto -->
+    <mat-grid-tile *ngFor="let prod of prodottiSenzasize | async">
+      <mat-card style="max-width: 350px;"> <!-- Imposta la larghezza massima del mat-card a 350px -->
+        <mat-card-header class="mat-card-title" style="background-color: var(--primary-color);">
+          <mat-card-title style="color:var(--accent-color)">{{prod.nome}}</mat-card-title>
+          <mat-card-subtitle style="color:var(--accent-color)">{{prod.nomeBrand}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image style="max-width: 100%; height: auto;" [src]="prod.url" [alt]="prod.nome"
+          (click)="viewProduct(prod.nome)">
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-grid-list>

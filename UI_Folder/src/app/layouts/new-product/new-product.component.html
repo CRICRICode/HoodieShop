@@ -1,0 +1,65 @@
+<div class="divCentrata">
+    <p>
+        <mat-form-field class="centered">
+            <mat-label>Nome prodotto</mat-label>
+            <input matInput placeholder="Thasup  Hoodie" [formControl]="nome" required>
+            <mat-icon matSuffix>checkroom</mat-icon>
+            <mat-error *ngIf="nome.invalid">{{getErrorMessageNome()}}</mat-error>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field class="centered">
+            <mat-label>Prezzo</mat-label>
+            <input matInput placeholder="1" [formControl]="prezzo" required>
+            <mat-icon matSuffix>local_atm</mat-icon>
+            <mat-error *ngIf="prezzo.invalid">{{getErrorMessagePrezzo()}}</mat-error>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field class="centered">
+            <mat-label>Quantità</mat-label>
+            <input matInput placeholder="0" [formControl]="qta" required>
+            <mat-icon matSuffix>add_shopping_cart</mat-icon>
+            <mat-error *ngIf="qta.invalid">{{getErrorMessagePrezzoQta()}}</mat-error>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field class="centered">
+            <mat-label>Brand</mat-label>
+            <input matInput placeholder="OCTOPUS" [formControl]="brand" required>
+            <mat-icon matSuffix>local_offer</mat-icon>
+            <mat-error *ngIf="brand.invalid">{{getErrorMessageBrand()}}</mat-error>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field class="centered">
+            <mat-label>size</mat-label>
+            <input matInput placeholder="M" [formControl]="size" required>
+            <mat-icon matSuffix>accessibility</mat-icon>
+            <mat-error *ngIf="size.invalid">{{getErrorMessagesize()}}</mat-error>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field class="centered">
+          <mat-label>Url foto</mat-label>
+          <input matInput placeholder="https://imgur.com/a/B5cQWOF" 
+          [formControl]="url" required (paste)="onPaste($event)">
+          <mat-icon-button matSuffix (click)="pasteFromClipboard()">
+            <mat-icon>add_to_photos</mat-icon>
+          </mat-icon-button>
+          <mat-error *ngIf="url.invalid">{{getErrorMessageUrl()}}</mat-error>
+        </mat-form-field>
+      </p>
+      
+
+
+    <div>
+        <p class="centered">
+            <button mat-stroked-button [disabled]="nome.invalid || prezzo.invalid || qta.invalid || brand.invalid || size.invalid || url.invalid"
+            [ngClass]="{'centeredActive-button': !nome.invalid && !prezzo.invalid && !qta.invalid && brand.invalid && !size.invalid && url.invalid, 
+            'centeredInactive-button': nome.invalid || prezzo.invalid || qta.invalid || brand.invalid || size.invalid || url.invalid }"
+            (click)="caricaProdotto()">
+            Carica</button>
+        </p>
+    </div>
+</div>

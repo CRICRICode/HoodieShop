@@ -1,0 +1,54 @@
+<div class="divCentrata">
+    <h1 class="filtri">Filtri</h1>
+    <div>
+        <mat-form-field class="centered">
+            <mat-label>Nome prodotto</mat-label>
+            <input matInput placeholder="Thasup Hoodie" [formControl]="nome">
+            <mat-icon matSuffix>checkroom</mat-icon>
+        </mat-form-field>
+    </div>
+    
+    <div>
+        <mat-form-field class="centered">
+            <mat-label>Brand</mat-label>
+            <input matInput placeholder="OCTOPUS" [formControl]="brand">
+            <mat-icon matSuffix>local_offer</mat-icon>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="centered">
+            <mat-label>Prezzo Max</mat-label>
+            <input matInput placeholder="100" [formControl]="prezzoMax">
+            <mat-icon matSuffix>euro_symbol</mat-icon>
+            <mat-error *ngIf="prezzoMax.invalid">{{getErrorMessagePrezzoMax()}}</mat-error>
+        </mat-form-field>
+    </div>
+    
+    <div>
+        <mat-form-field class="centered">
+            <mat-label>Prezzo Min</mat-label>
+            <input matInput placeholder="1" [formControl]="prezzoMin">
+            <mat-icon matSuffix>euro_symbol</mat-icon>
+            <mat-error *ngIf="prezzoMax.invalid">{{getErrorMessagePrezzoMin()}}</mat-error>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="centered">
+            <mat-label>size</mat-label>
+            <input matInput placeholder="M" [formControl]="size">
+            <mat-icon matSuffix>straighten</mat-icon>
+            <mat-error *ngIf="size.invalid">{{getErrorMessagesize()}}</mat-error>
+        </mat-form-field>
+    </div>
+
+
+    <div>
+        <p class="centered">
+            <button mat-stroked-button [disabled]="prezzoMax.invalid || prezzoMin.invalid || size.invalid"
+            [ngClass]="{'centeredActive-button': !prezzoMax.invalid && !prezzoMin.invalid && !size.invalid , 
+            'centeredInactive-button': prezzoMax.invalid || prezzoMin.invalid || size.invalid }"
+            (click)="ricercaAvanzata()">
+            Ricerca</button>
+        </p>
+    </div>
+</div>

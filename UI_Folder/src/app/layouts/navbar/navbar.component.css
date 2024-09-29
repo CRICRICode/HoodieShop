@@ -1,0 +1,94 @@
+/*Dichiariamo delle varibili per i colori del thema angular*/
+:root {
+    --primary-color: #3f51b5;
+    --accent-color: #ff4081;
+    --warn-color: #f44336;
+  }
+
+/* Serve per la toolbar */
+.example-spacer {
+flex: 1 1 auto;
+}
+
+mat-toolbar {
+position: sticky;
+top: 0;
+z-index: 1000;
+}
+
+/* Serve per i Buttons */
+section {
+display: table;
+}
+
+.example-label {
+display: table-cell;
+font-size: 14px;
+margin-left: 8px;
+min-width: 120px;
+}
+
+.example-button-row {
+display: table-cell;
+max-width: 600px;
+}
+
+.example-button-row .mat-mdc-button-base {
+margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+}
+
+.example-button-container {
+display: flex;
+justify-content: center;
+width: 120px;
+}
+
+/* Serve per far si che il menu si espandi a tutto schermo */
+.menu-screen .cdk-overlay-connected-position-bounding-box {
+    left: 0 !important;     /* La regola left: 0 !important; imposta la posizione sinistra dell'elemento a 0, che significa che verrà posizionato all'estrema sinistra della finestra o del contenitore genitore. L'uso di !important garantisce che questa regola venga applicata anche se ci sono altre regole che potrebbero tentare di sovrascriverla.*/
+  }
+@media only screen and (max-width: 2070px) {
+.menu-screen {
+    position: fixed;
+    max-width: unset !important;
+    width: 100vw;
+    background-color: var(--primary-color) !important;
+    box-shadow: 0 4px 2px -2px gray !important;  /* whatever you set the blur to (3rd value), set the spread (4th value) to the negative of it. */
+    } 
+}
+.menu-item {
+    background-color: var(--primary-color) !important;
+    color: rgb(0, 0, 0) !important;
+    /* Altri stili personalizzati */
+}
+.menu-item:hover {
+    color: var(--accent-color) !important;
+}
+
+/* Serve per le icone */
+.example-icon:hover{
+    color: var(--accent-color) !important;
+}
+
+/* Serve per le card */
+mat-card img{
+    object-fit: cover; /*this makes the image in src fit to the size specified below*/
+    width: 100%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+    height: 100% !important;
+  }
+
+
+/* Serve per il titolo */
+.titolo {
+    cursor:pointer;
+    display:flex;
+    justify-content: center;
+}
+
+

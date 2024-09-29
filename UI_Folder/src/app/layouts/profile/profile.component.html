@@ -1,0 +1,29 @@
+<div class="center-container">
+    <mat-card class="example-card" *ngIf="getNome() !== null">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{getNome()}}</mat-card-title>
+        <mat-card-subtitle>Utente</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="description">
+        <p>
+            Cantami, o Diva, del Pelìde Achille
+            l'ira funesta che infiniti addusse
+            lutti agli Achei, molte anzi tempo all'Orco generose travolse alme d'eroi,
+            e di cani e d'augelli orrido pasto
+            lor salme abbandonò (così di Giove
+            l'alto consiglio s'adempía), da quando primamente disgiunse aspra contesa
+            il re de' prodi Atride e il divo Achille.
+            E qual de' numi inimicolli? Il figlio
+            di Latona e di Giove. Irato al Sire
+            destò quel Dio nel campo un feral morbo, e la gente pería: colpa d'Atride
+            che fece a Crise sacerdote oltraggio.
+            
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-stroked-button color="black" (click)="goToCarrello()">Carrello</button>
+        <button mat-stroked-button color="black" (click)="goToOrdini()">Ordini</button>
+      </mat-card-actions>
+    </mat-card>
+</div>

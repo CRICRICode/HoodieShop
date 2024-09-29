@@ -1,0 +1,4 @@
+<mat-toolbar class="button">
+    <button mat-button *ngIf="auth.getRole()" (click)="newProduct()">Aggiungi prodotto</button>
+    <button mat-button *ngIf="auth.getRole()" (click)="productList()">Lista Prodotti</button>
+</mat-toolbar>

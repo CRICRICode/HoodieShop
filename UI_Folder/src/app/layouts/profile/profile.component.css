@@ -1,0 +1,39 @@
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.example-card {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 15%;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2); /* Aggiunge un'ombreggiatura all'elemento */
+}
+  
+  .example-header-image {
+    background-image: url('https://static1.personality-database.com/profile_images/b50caaea7acd4617bc861042641d466a.png');
+    background-size: cover;
+  }
+
+  .description{
+    background-color: white;
+    max-width: 320px;
+    border-radius: 5%;
+    
+  }
+
+  :root{
+    position: relative;
+}
+.showProdotto{
+    width: 35%;
+    top: 50%;
+    bottom: 50%;
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,25 @@
+<div style="display: flex; flex-wrap: wrap; gap: 50px; top: 5%;">
+    <ng-container *ngFor="let ordine of ordini | async">
+      <ng-container *ngFor="let prod of ordine.dettagli; let i = index">
+        <!-- Aggiungiamo un div vuoto solo se è il primo oggetto della riga -->
+        <div *ngIf="i % 3 === 0" style="flex-basis: 10px;"></div>
+      <mat-card style="flex-basis: calc(33.33% - 80px); max-width: 400px; margin-left: -8px; margin-top: 40px;">
+          <mat-card-header style="background-color: var(--primary-color);">
+            <mat-card-title style="color:var(--accent-color)">{{ prod.prodotto.nome }}</mat-card-title>
+            <mat-card-subtitle style="color:var(--accent-color)">{{ prod.prodotto.nomeBrand }}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image style="max-width: 480px; max-height: 200px;" [src]="prod.prodotto.url" [alt]="prod.prodotto.nome" />
+          <mat-card-footer></mat-card-footer>
+          <mat-card-actions>
+            <!-- PREZZO -->
+            <button mat-stroked-button disabled matPrefix="Qta" style="max-width: max;">{{ prod.prezzo }} €</button>
+            <!-- QUANTITA andrebbe fatto dopo che si seleziona la size, così da associarlo alla size scelta-->
+            <button mat-button color="warn">{{ prod.qta }}</button>
+            <!-- DATA E ORARIO -->
+            <div>Giorno ed Ora: </div><button mat-button color="warn">{{ ordine.data | date: 'dd/MM/yyyy; hh:mm a' }}</button>
+          </mat-card-actions>
+        </mat-card>
+      </ng-container>
+    </ng-container>
+  </div>
+  

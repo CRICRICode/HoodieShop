@@ -1,0 +1,40 @@
+:root{
+    position: relative;
+}
+.divCentrata{
+    width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.login{
+    font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px; /* Aggiunto margine inferiore per spaziare dai formfields */
+}
+
+
+.centered {
+    position: relative !important;
+    top:25% !important;
+    left:25% !important;
+}
+
+.centeredActive-button {
+    position: relative !important;
+    top:25% !important;
+    width: 40.5%;
+    color:var(--primary-color) !important;
+}
+
+.centeredInactive-button {
+    position: relative !important;
+    top:25% !important;
+    width: 40.5%;
+}
+
+.centeredActive-button:hover {
+    color:var(--accent-color) !important;
+}

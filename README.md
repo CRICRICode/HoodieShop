@@ -79,3 +79,8 @@ Frontend (UI Server): Run the following command from the frontend folder, ensuri
 ## 6. Access the Application
 UI: The frontend is accessible at http://localhost:4200.
 API: The API server can be accessed on the port specified during setup (default: http://localhost:7140).
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
+
